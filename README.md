@@ -98,3 +98,8 @@ make check
 ## License
 
 本專案採用 **Apache License 2.0** 授權，詳細條款請見儲存庫根目錄的 [`LICENSE`](./LICENSE) 檔案。
+
+## 遊玩畫面展示
+
+<img width="1440" height="793" alt="Image" src="https://github.com/user-attachments/assets/aee206dd-edf7-42ee-9d88-3eabad183cee" />
+
