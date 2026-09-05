@@ -488,10 +488,10 @@ function heading(eyebrowText, titleText) {
   textPanel.append(eyebrow, h1)
 }
 
-function photoStrip() {
+function photoStrip(size = 'large') {
   if (photos.length === 0) return
   const strip = document.createElement('div')
-  strip.className = 'photo-strip'
+  strip.className = `photo-strip photo-strip--${size}`
   const img = document.createElement('img')
   img.src = photos[photos.length - 1]
   img.alt = '你拍的畫作'
@@ -523,7 +523,7 @@ function renderCamera() {
   stage.append(cameraVideo)
   actionPanel.append(stage)
 
-  photoStrip()
+  photoStrip('compact')
 
   const actions = document.createElement('div')
   actions.className = 'actions'
@@ -834,11 +834,14 @@ function renderFullStory() {
   actions.append(button('唸給我聽', () => void listen(storyState.fullText), { className: 'listen' }))
   actions.append(button('再畫一個新故事', resetAll, { className: 'secondary' }))
   actionPanel.append(actions)
+
+  textPanel.scrollTop = 0
 }
 
 function render() {
   actionPanel.replaceChildren()
   textPanel.replaceChildren()
+  textPanel.classList.toggle('full-story-panel', uiStep === 'full-story')
   sceneCount.hidden = true
   statusMessage.hidden = true
   if (uiStep !== 'camera') cameraVideo.hidden = true
